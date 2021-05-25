@@ -10,6 +10,7 @@ const Image = (props) => {
 		size: size,
 	}
 
+	// shape에 따라 return문 바꾸기
 	if (shape === "circle") {
 		return (
 			<ImageCircle {...styles}></ImageCircle>
@@ -17,9 +18,11 @@ const Image = (props) => {
 	}
 	
 	if (shape === "rectangle") {
-		<AspectOutter>
-			<AspectInner {...styles}></AspectInner>
-		</AspectOutter>
+		return (
+			<AspectOutter>
+				<AspectInner {...styles}></AspectInner>
+			</AspectOutter >
+		);
 	}
 
     return (
