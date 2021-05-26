@@ -6,13 +6,14 @@ import {Grid, Image, Text} from "../elements";
 const Post = (props) => {
 
     return (
-      <PostBlock>
+      <>
         {/* <Grid> */}
 					<UserGrid>
 						<Image shape="circle">{props.user_info.user_profile}</Image>
 						<Text>{props.user_name}</Text>
 						<Text>{props.insert_dt}</Text>
 					</UserGrid>
+					
 					<Grid>
 						<Text>{props.contents}</Text>
 					</Grid>
@@ -23,7 +24,7 @@ const Post = (props) => {
 						<Text>댓글 {props.comment_cnt}개</Text>
 					</Grid>
         {/* </Grid> */}
-      </PostBlock>
+      </>
     );
 }
 
@@ -40,13 +41,6 @@ Post.defaultProps = {
 	comment_cnt: 10,
 	insert_dt: "2021-05-25 10:00:00",
 };
-
-const PostBlock = styled.div`
-  /* width: 375px;
-  height: 956px; */
-	/* display: flex;
-	flex-direction: column; */
-`;
 
 const UserGrid = styled.div`
 	display: flex;
