@@ -1,15 +1,23 @@
 import React from "react";
+import styled from 'styled-components';
 import Post from '../components/Post';
 import Header from '../components/Header';
 
-const PostList = () => {
+const PostList = (props) => {
 
     return (
-			<React.Fragment>
+			<PostListBlock>
 				<Header />
         <Post />
-      </React.Fragment>
+      </PostListBlock>
     );
 }
+
+const PostListBlock = styled.div`
+  /* width: 375px;
+  height: 956px; */
+  display: flex;
+	flex-direction: column;
+`;
 
 export default PostList;
