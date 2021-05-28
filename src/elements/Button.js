@@ -24,16 +24,16 @@ const Button = (props) => {
 };
 
 Button.defaultProps = {
-	width: '80px',
+	width: '70px',
 	height: '40px',
-	margin: '8px 5.5px',
-	bg: '#C4C4C4'
+	bg: '#C4C4C4',
+	margin: false,
 }
 
 const Btn = styled.button`
 	width: ${(props) => props.width};
 	height: ${(props) => props.height};
-	margin: ${(props) => props.margin};
+	${(props) => (props.margin ? `margin: ${props.margin};` : "")};
 	padding: ${(props) => props.padding};
 	background-color: ${(props) => props.bg};
 	border: none;

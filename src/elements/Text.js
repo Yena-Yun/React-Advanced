@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 
 const Text = (props) => {
-	const { bold, color, size, children } = props;
+	const { bold, color, size, margin, children } = props;
 
 	const styles = {
 		bold: bold,
 		color: color,
 		size: size,
+		margin: margin,
 	}
 
 	return (
@@ -24,6 +25,7 @@ Text.defaultProps = {
 	bold: false,
 	color: "#222831",
 	size: "12",
+	margin: 0,
 };
 
 // 스타일링 컴포넌트
@@ -32,6 +34,7 @@ const P = styled.p`
 	font-size: ${(props) => props.size}px;
 	//글자 굵기는 true or false -> 삼항연산자로 처리
 	font-weight: ${(props) => (props.bold ? "600" : "400")};
+	margin: ${(props) => props.margin}px;
 `;
 
 export default Text;

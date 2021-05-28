@@ -46,7 +46,7 @@ const GridBox = styled.div`
 	box-sizing: border-box;
 
 	// 기본값이 true or false 인 경우는 전부 삼항연산자로 처리
-	// => 아예 자체를 props로 받아서, props의 해당 요소가 있으면 백틱을 이용해 생성하고
+	// => 아예 자체를 props로 받아서, props의h 해당 요소가 있으면 백틱을 이용해 생성하고
 	// 아니면 ""로 공백 처리 (백틱으로 만들 때 ';' 들어가므로 코드의 맨 끝에는 ';' 없음)
 	${(props) => (props.padding ? `padding: ${props.padding};` : "") }
 	${(props) => (props.margin ? `margin: ${props.margin};` : "") }

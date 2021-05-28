@@ -11,7 +11,7 @@ const Header = (props) => {
 				<Image shape="circle" size="40" radius="0" src="https://i.esdrop.com/d/KwrGH1p1Zl/0ggDrjXjEp.jpg"></Image>
 			</ImageProfile>
 			<div className="button-div">
-				<Button>내 정보</Button>
+				<Button margin="0 11 0 0">내 정보</Button>
 				<Button>알림</Button>
 				<Button>로그아웃</Button>
 			</div>
@@ -25,6 +25,7 @@ const HeaderBlock = styled.div`
 	padding: 8px 16px;
 	display: flex;
 	justify-content: space-between;
+	box-sizing: border-box;
 `;
 
 const ImageProfile = styled.div`
