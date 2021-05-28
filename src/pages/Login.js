@@ -38,6 +38,7 @@ const Inputbox = styled.input`
 	padding: 13px 14px 11px;
 	box-sizing: border-box;
 	font-size: 12px;
+	border: 1px solid #000;
 `;
 
 export default Login;
