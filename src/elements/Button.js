@@ -17,7 +17,7 @@ const Button = (props) => {
 	return (
 		<>
 			<Btn {...styles}>
-				<Text>{children}</Text>
+				<Text bold margin="0" size="12">{children}</Text>
 			</Btn>
 		</>
 	);
@@ -27,7 +27,6 @@ Button.defaultProps = {
 	width: '80px',
 	height: '40px',
 	margin: '8px 5.5px',
-	padding: '13px 0',
 	bg: '#C4C4C4'
 }
 
@@ -37,6 +36,9 @@ const Btn = styled.button`
 	margin: ${(props) => props.margin};
 	padding: ${(props) => props.padding};
 	background-color: ${(props) => props.bg};
+	border: none;
+	box-shadow: none;
+	cursor: pointer;
 `;
 
 export default Button;

@@ -1,31 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import {Grid, Image, Text} from "../elements";
+import { Grid, Image, Text } from "../elements";
 
 
 const Post = (props) => {
 
-    return (
-      <>
-        {/* <Grid> */}
-					<UserGrid>
-						<Image shape="circle">{props.user_info.user_profile}</Image>
-						<Text>{props.user_name}</Text>
-						<Text>{props.insert_dt}</Text>
-					</UserGrid>
-					
-					<Grid>
-						<Text>{props.contents}</Text>
-					</Grid>
-					<Grid>
-						<Image shape="rectangle" size="375px">{props.image_url}</Image>
-					</Grid>
-					<Grid>
-						<Text>댓글 {props.comment_cnt}개</Text>
-					</Grid>
-        {/* </Grid> */}
-      </>
-    );
+	return (
+		<>
+			{/* <Grid> */}
+			<UserGrid>
+				<UserinfoGrid>
+					<Image shape="circle">{props.user_info.user_profile}</Image>
+					<Text bold="600">{props.user_info.user_name}</Text>
+				</UserinfoGrid>
+				<Text>{props.insert_dt}</Text>
+			</UserGrid>
+
+			<Grid>
+				<Text>{props.contents}</Text>
+			</Grid>
+			<Grid>
+				<Image shape="rectangle" size="375px">{props.image_url}</Image>
+			</Grid>
+			<Grid>
+				<Text>댓글 {props.comment_cnt}개</Text>
+			</Grid>
+			{/* </Grid> */}
+		</>
+	);
 }
 
 //defaultProps로 필요한 props들을 미리 넘겨놓음 (값이 없을 때 깨지는 현상 방지)
@@ -45,6 +47,12 @@ Post.defaultProps = {
 const UserGrid = styled.div`
 	display: flex;
 	justify-content: space-between;
+	border-top: 19px solid #cfe4f7;
+	padding: 13px 16px 21px;
+`;
+
+const UserinfoGrid = styled.div`
+	display: flex;
 `;
 
 export default Post;

@@ -9,6 +9,7 @@ const PostList = (props) => {
 			<PostListBlock>
 				<Header />
         <Post />
+        <Post />
       </PostListBlock>
     );
 }

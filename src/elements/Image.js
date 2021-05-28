@@ -3,11 +3,12 @@ import React from "react";
 
 
 const Image = (props) => {
-	const { shape, src, size } = props;
+	const { shape, src, size, radius } = props;
 
 	const styles = {
 		src: src,
 		size: size,
+		radius: radius,
 	}
 
 	// shape에 따라 return문 바꾸기
@@ -36,6 +37,7 @@ Image.defaultProps = {
 	shape: "circle",
 	src: "https://i.esdrop.com/d/KwrGH1p1Zl/X9s1vdD2Te.JPEG",
 	size: 36,
+	radius: 50,
 };
 
 // 사각형 바깥쪽 너비는 반응형
@@ -63,7 +65,8 @@ const ImageCircle = styled.div`
 	// 변하는 요소가 모두 size이므로 변수 사용
 	width: var(--size);
 	height: var(--size);
-	border-radius: var(--size);
+
+	border-radius: ${(props) => props.radius}%;
 
 	background-image: url("${(props) => props.src}");
 	background-size: cover;

@@ -23,13 +23,13 @@ Text.defaultProps = {
 	children: null,
 	bold: false,
 	color: "#222831",
-	size: "12px",
+	size: "12",
 };
 
 // 스타일링 컴포넌트
 const P = styled.p`
 	color: ${(props) => props.color};
-	font-size: ${(props) => props.size};
+	font-size: ${(props) => props.size}px;
 	//글자 굵기는 true or false -> 삼항연산자로 처리
 	font-weight: ${(props) => (props.bold ? "600" : "400")};
 `;
