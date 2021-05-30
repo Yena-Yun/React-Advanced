@@ -51,11 +51,10 @@ const AspectInner = styled.div`
 	position: relative;
 	padding-top: 75%;
 	overflow: hidden;
-
 	//background-image: url("")
 	background-image: url("${(props) => props.src}");
 	//background-position: relative, absolute, sticky, fixed
-	//background-size: auto, cover, contain 등
+	//background-size: auto, cover, contain
 	background-size: cover;
 `;
 
@@ -70,7 +69,7 @@ const ImageCircle = styled.div`
 
 	background-image: url("${(props) => props.src}");
 	background-size: cover;
-	${(props) => props.margin ? `margin: ${props.margin};` : ""};
+	${(props) => (props.margin ? `margin: ${props.margin};` : "")};
 `;
 
 export default Image;

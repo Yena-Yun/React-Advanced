@@ -1,36 +1,80 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Grid, Image, Button } from '../elements';
+// 쿠키: 아이디나 비밀번호로 인증 후 서버에게서 받은 토큰을 
+//			클라 쪽에서 저장해두는 웹 저장소 중 하나
+
+// 쿠키가 있으면 로그인한 헤더 보여주기
+import React, { useState, useEffect } from 'react';
+import { Grid, Text, Button } from '../elements';
+import Login from '../pages/Login';
+import Signup from '../pages/Signup';
+// 쿠키 가져오는 함수(로그인), 쿠키 제거하는 함수(로그아웃) 임포트
+import { getCookie, deleteCookie } from '../shared/Cookie';
+
 
 const Header = (props) => {
-	const { user_profile, children } = props;
+	const [is_login, setIsLogin] = useState(false);
 
+	// 로그인이 되었을 때 (화면을 새로고침)
+	useEffect(() => {
+		//getCookie로 쿠키 가져오기
+		let cookie = getCookie('login');
+		//(가져온 쿠키 콘솔창으로 확인)
+		console.log(cookie);
+
+		//쿠키가 있으면
+		if (cookie) {
+			//로그인 상태를 true로 바꿈
+			setIsLogin(true);
+			//없으면
+		} else {
+			//false로 바꿈
+			setIsLogin(false);
+		}
+	}, []);
+
+	//로그인이 되었을 때 보여줄 헤더
+	if (is_login) {
+		return (
+			<>
+				<Grid is_flex padding="4px 16px">
+					<Grid>
+						<Text margin="0px" size="24px" bold>
+							헬로
+						</Text>
+					</Grid>
+
+					<Grid is_flex>
+						<Button>내 정보</Button>
+						<Button>알림</Button>
+						<Button _onClick={() => { deleteCookie('login'); }}>
+							로그아웃
+						</Button>
+					</Grid>
+				</Grid>
+			</>
+		);
+	}
+
+	//로그인이 안 됐을 때 보여줄 헤더
 	return (
-		<HeaderBlock>
-			<ImageProfile>
-				<Image shape="circle" size="40" radius="0" src="https://i.esdrop.com/d/KwrGH1p1Zl/0ggDrjXjEp.jpg"></Image>
-			</ImageProfile>
-			<div className="button-div">
-				<Button>내 정보</Button>
-				<Button>알림</Button>
-				<Button>로그아웃</Button>
-			</div>
-		</HeaderBlock>
-	);
+		<>
+			<Grid is_flex padding="4px 16px">
+				<Grid>
+					<Text margin="0px" size="24px" bold>
+						헬로
+					</Text>
+				</Grid>
+
+				<Grid is_flex>
+					<Button _onClick={() => { Login(); }}>
+						로그인
+					</Button>
+					<Button _onClick={() => { Signup(); }}>
+						회원가입
+					</Button>
+				</Grid>
+			</Grid>
+			</>
+	)
 };
-
-const HeaderBlock = styled.div`
-	width: 375px;
-	height: 56px;
-	padding: 8px 16px;
-	display: flex;
-	justify-content: space-between;
-	box-sizing: border-box;
-`;
-
-const ImageProfile = styled.div`
-	display: flex;
-	align-items: center;
-`;
 
 export default Header;

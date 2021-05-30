@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text } from '../elements';
+import { Text, Grid } from '../elements';
 
 
 const Button = (props) => {
-	const { width, height, margin, padding, bg, children } = props;
+	const { width, height, margin, padding, bg, children, type} = props;
 	
 	const styles = {
 		width: width,
@@ -16,9 +16,11 @@ const Button = (props) => {
 
 	return (
 		<>
-			<Btn {...styles}>
-				<Text bold margin="0" size="12">{children}</Text>
-			</Btn>
+			<Grid>
+				<ElButton {...styles} type={type}>
+					{children}
+				</ElButton>
+			</Grid>
 		</>
 	);
 };
@@ -27,10 +29,10 @@ Button.defaultProps = {
 	width: '70px',
 	height: '40px',
 	bg: '#C4C4C4',
-	margin: false,
+	type: "submit",
 }
 
-const Btn = styled.button`
+const ElButton = styled.button`
 	width: ${(props) => props.width};
 	height: ${(props) => props.height};
 	${(props) => (props.margin ? `margin: ${props.margin};` : "")};
@@ -38,6 +40,7 @@ const Btn = styled.button`
 	background-color: ${(props) => props.bg};
 	border: none;
 	box-shadow: none;
+	font-size: 13px;
 	cursor: pointer;
 `;
 

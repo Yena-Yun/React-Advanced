@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { Grid, Image, Text } from "../elements";
 
 
@@ -7,25 +6,25 @@ const Post = (props) => {
 
 	return (
 		<>
-			{/* <Grid> */}
-			<UserGrid>
-				<UserinfoGrid>
-					<Image shape="circle">{props.user_info.user_profile}</Image>
-					<Text bold="600">{props.user_info.user_name}</Text>
-				</UserinfoGrid>
-				<Text>{props.insert_dt}</Text>
-			</UserGrid>
+			<Grid>
+				<Grid is_flex>
+					<Image shape="circle" src={props.user_info.user_profile} />
+					<Text bold>{props.user_info.user_name}</Text>
+					<Text>{props.insert_dt}</Text>
+				</Grid>
 
-			<Grid>
-				<Text>{props.contents}</Text>
+				<Grid padding="16px">
+					<Text>{props.contents}</Text>
+				</Grid>
+
+				<Grid>
+					<Image shape="rectangle" src={props.image_url} />
+				</Grid>
+
+			<Grid padding="16px">
+				<Text bold>댓글 {props.comment_cnt}개</Text>
 			</Grid>
-			<Grid>
-				<Image shape="rectangle" size="375px">{props.image_url}</Image>
 			</Grid>
-			<Grid>
-				<Text>댓글 {props.comment_cnt}개</Text>
-			</Grid>
-			{/* </Grid> */}
 		</>
 	);
 }
@@ -43,16 +42,5 @@ Post.defaultProps = {
 	comment_cnt: 10,
 	insert_dt: "2021-05-25 10:00:00",
 };
-
-const UserGrid = styled.div`
-	display: flex;
-	justify-content: space-between;
-	border-top: 19px solid #cfe4f7;
-	padding: 13px 16px 21px;
-`;
-
-const UserinfoGrid = styled.div`
-	display: flex;
-`;
 
 export default Post;

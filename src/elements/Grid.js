@@ -15,9 +15,7 @@ const Grid = (props) => {
 	}
 
   return (
-    <>
 			<GridBox {...styles}>{children}</GridBox>
-    </>
   );
 };
 
@@ -26,10 +24,8 @@ const Grid = (props) => {
 Grid.defaultProps = {
 	children: null,
 	is_flex: false,
-	
 	// width의 기본값은 100%
 	width: "100%",
-
 	margin: false,
 	padding: false,
 	bg: false,
@@ -52,11 +48,8 @@ const GridBox = styled.div`
 	${(props) => (props.margin ? `margin: ${props.margin};` : "") }
 	${(props) => (props.bg ? `background-color: ${props.bg};` : "") }
 	${(props) => (props.is_flex
-	? `display: flex; align-items: center; justify-content: space-between;`
-	: "")}
-
-	display: flex;
-	flex-direction: column;
+		? `display: flex; align-items: center; justify-content: space-between; `
+		: "")}
 `;
 
 export default Grid;

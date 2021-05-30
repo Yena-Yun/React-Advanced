@@ -13,9 +13,7 @@ const Text = (props) => {
 	}
 
 	return (
-		<>
 			<P {...styles}>{children}</P>
-		</>
 	);
 };
 
