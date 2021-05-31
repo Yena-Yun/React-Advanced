@@ -24,7 +24,7 @@ const Header = (props) => {
 		if (cookie) {
 			//로그인 상태를 true로 바꿈
 			setIsLogin(true);
-			//없으면
+		//없으면
 		} else {
 			//false로 바꿈
 			setIsLogin(false);
@@ -38,13 +38,14 @@ const Header = (props) => {
 				<Grid is_flex padding="4px 16px">
 					<Grid>
 						<Text margin="0px" size="24px" bold>
-							헬로
+							Hello
 						</Text>
 					</Grid>
 
 					<Grid is_flex>
 						<Button>내 정보</Button>
 						<Button>알림</Button>
+						{/* 로그아웃 버튼에 deleteCookie 함수를 연결해준다 */}
 						<Button _onClick={() => { deleteCookie('login'); }}>
 							로그아웃
 						</Button>
@@ -60,7 +61,7 @@ const Header = (props) => {
 			<Grid is_flex padding="4px 16px">
 				<Grid>
 					<Text margin="0px" size="24px" bold>
-						헬로
+						Hello
 					</Text>
 				</Grid>
 
