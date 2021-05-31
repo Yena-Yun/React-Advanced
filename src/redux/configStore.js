@@ -11,13 +11,19 @@ import { connectRouter } from "connected-react-router";
 import User from "./modules/user";
 
 
+//스토어에 히스토리 넣기
+export const history = createBrowserHistory();
+
 //만든 리듀서들을 모아서 루트리듀서 만들기
 const rootReducer = combineReducers({
 	user: User,
+	router: connectRouter(history),
 });
 
 //미들웨어 준비
-const middlewares = [thunk];
+//const middlewares = [thunk];
+//thunk에 더해서 history를 추가 인자로 넣음
+const middlewares = [thunk.withExtraArgument({ history: history })];
 
 //지금이 어떤 환경인지 알려줌 (개발환경인지, 배포환경인지, ...)
 const env = process.env.NODE_ENV;
